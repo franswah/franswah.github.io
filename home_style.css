@@ -1,0 +1,47 @@
+#header {
+	text-align:center;
+	background-color:#111122;
+	/*background-image: url("space.jpg");*/
+	color: #fff;
+	font-size:40px;
+	
+}
+
+#clock {
+	font-size:30px;
+}
+
+a:visited {
+	color:#fff;
+}
+
+li {
+	display: inline;
+	padding:10px;
+	opacity:.6f;
+	cursor: pointer;
+}
+
+li a {
+	text-decoration: none;
+	color:#fff;
+	
+}
+
+li:hover {
+	background-color:#11cccc;
+}
+
+#artList img{
+	max-width:500px;
+}
+
+.selected {
+	color:#7733aa;
+}
+
+body {
+	color:#ffffff;
+	background-color:#111122;
+	background-image: url("space.jpg");
+}

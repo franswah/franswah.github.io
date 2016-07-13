@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="home_style.css">
+<script src="jquery-2.1.4.min.js"></script>
+<script src="sql.js"></script>
+<script src="scripts/displayImage.js"></script>
+<script src="clock.js"></script>
+<script>
+$.ajax({
+  url: "images/art/",
+  success: function(data){
+     $(data).find("a:contains(.jpg)").each(function(){
+        // will loop through 
+        var images = $(this).attr("href");
+
+        $('<p></p>').html(images).appendTo('body')
+
+     });
+  }
+});
+</script>
+<script>
+function yahoo() {
+  var myAudio = document.getElementById("yahoo");
+  myAudio.currentTime=0;
+  myAudio.play();
+}
+</script>
+</head>
+<body>
+<div id="header">
+	<h1 id="clock" >Tick Tock</h1>
+	<h2>Welcome to Jacob's Website</h2>
+	
+	<div id="menubar">
+		<ul class="menu">
+			<li><a href="home.html">Home</a></li>
+			<li class="selected">Art</li>
+			<li><a href="programming.html">Programming</a></li>
+			<li><a>Writing</a></li>
+			<li onClick="yahoo()">Yahoo</li>
+		</ul>
+	</div>
+
+<audio id="yahoo">
+	<source src="Getting_a_Star.mp3" type="audio/mpeg">
+</audio>
+</div>
+<div id="artList">
+<h2>Most recent painting (Oil - Work in Progress)</h2>
+<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120551&authkey=AEabC3R4mYanpfA" width="180" height="320" frameborder="0" scrolling="no"></iframe>
+
+<h2>OneDrive Art Gallery</h2>
+<a href="http://1drv.ms/1MFR20x">Digital Art</a>
+
+	<!--<img src="images/art/RGD_01.jpg">
+	<img src="images/art/RGD_02.jpg">
+	<img src="images/art/RGD_03.jpg">
+	<img src="images/art/RGD_04.jpg">
+	<img src="images/art/RGD_05.jpg">
+	<img src="images/art/RGD_06.jpg">
+	<img src="images/art/RGD_07.jpg">
+	<img src="images/art/RGD_08.jpg">
+	<img src="images/art/RGD_09.jpg">
+	<img src="images/art/RGD_10.jpg">
+	<img src="images/art/RGD_11.jpg">-->
+</div>
+</body>
+</html>
