@@ -1,39 +1,9 @@
-#header {
-	text-align:center;
-	background-color:#111122;
-	/*background-image: url("space.jpg");*/
-	color: #fff;
-	font-size:40px;
-
-}
-
-#clock {
-	font-size:30px;
-}
-
 a:visited {
 	color:#fff;
 }
 
-li {
-	display: inline;
-	padding:10px;
-	opacity:.6f;
-	cursor: pointer;
-}
-
-li a {
-	text-decoration: none;
-	color:#fff;
-
-}
-
-li:hover {
-	background-color:#11cccc;
-}
-
-#artList img{
-	max-width:500px;
+p {
+	text-indent: 50px;
 }
 
 .selected {
@@ -43,4 +13,42 @@ li:hover {
 body {
 	color:#ffffff;
 	background-color:#224466;
+}
+
+.section {
+	background-color:#111122;
+	margin: 10px 10px 10px 10px;
+	padding: 10px 30px 10px 30px;
+	text-align: center;
+	box-shadow: 4px 4px 2px #060611;
+	font-size: 20px;
+	overflow: auto;
+}
+
+.section_title {
+	text-align: center;
+}
+
+.subsection {
+  display: flex;
+	flex-direction: row;
+	flex-wrap:nowrap;
+	justify-content: space-between;
+
+}
+
+.showcase_description {
+	text-align: left;
+	flex-grow: 2;
+	width: 0%;
+}
+
+.showcase_description h3 {
+	text-align: center;
+}
+
+.showcase_feature {
+	border: 3px solid #EEEEEE;
+	flex-grow: 1;
+	width: 0%;
 }

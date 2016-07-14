@@ -1,16 +1,17 @@
-var bg = document.getElementById("bg-layer");
-var bgctx = bg.getContext("2d");
-bg.width = 1080;
-bg.height = 720;
-bgctx.fillStyle = "#ddddff";
-bgctx.fillRect(0,0,1080,720);
-document.body.appendChild(bg);
+var WIDTH = 920;
+var HEIGHT = 500;
 
-var canvas = document.getElementById("robot-layer");
+var bg = document.getElementById("bg_layer");
+bg.width = WIDTH;
+bg.height = HEIGHT;
+var bgctx = bg.getContext("2d");
+bgctx.fillStyle = "#ddddff";
+bgctx.fillRect(0,0,bg.width,bg.height);
+
+var canvas = document.getElementById("robot_layer");
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
 var ctx = canvas.getContext("2d");
-canvas.width = 1080;
-canvas.height = 720;
-document.body.appendChild(canvas);
 
 var ground = bg.height - 20;
 var mouseX = 50;
@@ -48,13 +49,16 @@ addEventListener("keyup", function(e) {
 }, false);
 
 canvas.addEventListener("mousemove", function(e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  var rect = canvas.getBoundingClientRect();
+  mouseX = e.clientX - rect.left;
+  mouseY = e.clientY - rect.top;
 });
 
-addEventListener("click", function(e) {
+canvas.addEventListener("click", function(e) {
   bullets.push(new bullet());
 });
+
+canvas.onselectstart = function () { return false; }
 
 function vector2d(x1, y1, x2, y2) {
   this.x1 = x1;

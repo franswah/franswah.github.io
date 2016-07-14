@@ -4,9 +4,25 @@ header {
 	/*background-image: url("space.jpg");*/
 	color: #fff;
 	font-size:40px;
-	box-shadow: 4px 4px 2px #222255;
+	box-shadow: 4px 4px 2px #060611;
 }
 
 #clock {
 	font-size:30px;
+}
+
+header li {
+	display: inline;
+	padding:10px;
+	opacity:.6f;
+	cursor: pointer;
+}
+
+header li a {
+	text-decoration: none;
+	color:#fff;
+}
+
+header li:hover {
+	background-color:#11cccc;
 }
