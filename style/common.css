@@ -15,6 +15,11 @@ body {
 	background-color:#224466;
 }
 
+img {
+	width: 100%;
+	height: auto;
+}
+
 .section {
 	background-color:#111122;
 	margin: 10px 10px 10px 10px;
@@ -29,18 +34,23 @@ body {
 	text-align: center;
 }
 
+.section_summary {
+	margin-bottom: 20px;
+}
+
 .subsection {
   display: flex;
 	flex-direction: row;
 	flex-wrap:nowrap;
 	justify-content: space-between;
-
+	border: 3px solid #EEEEEE;
 }
 
 .showcase_description {
 	text-align: left;
-	flex-grow: 2;
 	width: 0%;
+	margin: 10px 10px 10px 10px;
+	flex-grow: 2;
 }
 
 .showcase_description h3 {
@@ -48,7 +58,21 @@ body {
 }
 
 .showcase_feature {
-	border: 3px solid #EEEEEE;
-	flex-grow: 1;
+	margin-top: 10px;
+	margin-bottom:10px;
 	width: 0%;
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.showcase_feature a {
+}
+
+.flex_gallery {
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content: space-around;
 }

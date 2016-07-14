@@ -4,20 +4,6 @@
 <link rel="stylesheet" type="text/css" href="style/common.css">
 <link rel="stylesheet" type="text/css" href="style/art_gallery_style.css">
 <script src="scripts/jquery-2.1.4.min.js"></script>
-<script src="scripts/displayImage.js"></script>
-<script>
-$.ajax({
-  url: "images/art/",
-  success: function(data){
-     $(data).find("a:contains(.jpg)").each(function(){
-        // will loop through
-        var images = $(this).attr("href");
-
-        $('<p></p>').html(images).appendTo('body')
-     });
-  }
-});
-</script>
 </head>
 <header></header>
 <body>
@@ -25,26 +11,57 @@ $.ajax({
     $('header').load('/header.html');
   </script>
 <div id="artList">
-<h2>Most recent painting (Oil - Work in Progress)</h2>
+  <div class="section">
+    <div class="section_title">
+      <h1>Art</h1>
+    </div>
+    <div class= "section_summary">
+        Art is a great hobby of mine. I enjoy creating paintings and drawings both physically and digitally.
+    </div>
+  </div>
+  <div class="section">
+    <div class="section_title">
+      <h1>Featured Art</h1>
+    </div>
+    <div class= "section_summary">
+        Anything I feel like showing off right now.
+    </div>
+    <div class="flex_gallery">
 
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120558&authkey=ANbR7KHhurCGN2g" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120559&authkey=ALeFRKVB8CxVFm4" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120551&authkey=AEabC3R4mYanpfA" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120550&authkey=ACIaHq5lwcsT4Bk" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120522&authkey=AN_IR1Su4bY1QNE" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-<iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120492&authkey=ANArtQr_uYM_jwk" width="180" height="320" frameborder="0" scrolling="no"></iframe>
+      <div class="art_container">
+        <img src="/images/piano_oil_painting.jpg"/>
+        <p>
+        My first oil painting that was not just a class exercise. Had to include two separate spaces
+        with different color schemes.
+        </p>
+      </div>
+      <div class="art_container">
+        <img src="/images/dormer.jpg"/>
+        <p>
+        My first soft pastel drawing. A portrait of Natalie Dormer with funky complementary colors.
+        </p>
+      </div>
+      <div class="art_container">
+        <img src="/images/rgd/RGD_10.jpg"/>
+        <p>
+        One of several reddit gets drawn requests that I have fulfilled. Digital using Sketchbook Pro.
+        </p>
+      </div>
+      <div class="art_container">
+        <img src="/images/rgd/RGD_12.jpg"/>
+        <p>
+        A colorful colored pencil pug.
+        </p>
+      </div>
+      <div class="art_container">
+        <img src="/images/rgd/RGD_16.jpg"/>
+        <p>
+        Black colored pencil.
+        </p>
+      </div>
+    </div>
+  </div>
 
-	<!--<img src="images/art/RGD_01.jpg">
-	<img src="images/art/RGD_02.jpg">
-	<img src="images/art/RGD_03.jpg">
-	<img src="images/art/RGD_04.jpg">
-	<img src="images/art/RGD_05.jpg">
-	<img src="images/art/RGD_06.jpg">
-	<img src="images/art/RGD_07.jpg">
-	<img src="images/art/RGD_08.jpg">
-	<img src="images/art/RGD_09.jpg">
-	<img src="images/art/RGD_10.jpg">
-	<img src="images/art/RGD_11.jpg">-->
 </div>
 </body>
 </html>

@@ -1,3 +1,11 @@
 #artList img{
 	max-width:500px;
 }
+
+.art_container {
+  max-width: 300px;
+}
+
+.art_container p {
+	text-indent: 0;
+}
