@@ -1,52 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="home_style.css">
-<script src="jquery-2.1.4.min.js"></script>
-<script src="sql.js"></script>
+<link rel="stylesheet" type="text/css" href="style/common.css">
+<script src="scripts/jquery-2.1.4.min.js"></script>
 <script src="scripts/displayImage.js"></script>
-<script src="clock.js"></script>
 <script>
 $.ajax({
   url: "images/art/",
   success: function(data){
      $(data).find("a:contains(.jpg)").each(function(){
-        // will loop through 
+        // will loop through
         var images = $(this).attr("href");
 
         $('<p></p>').html(images).appendTo('body')
-
      });
   }
 });
 </script>
-<script>
-function yahoo() {
-  var myAudio = document.getElementById("yahoo");
-  myAudio.currentTime=0;
-  myAudio.play();
-}
-</script>
 </head>
+<header></header>
 <body>
-<div id="header">
-	<h1 id="clock" >Tick Tock</h1>
-	<h2>Welcome to Jacob's Website</h2>
-	
-	<div id="menubar">
-		<ul class="menu">
-			<li><a href="home.html">Home</a></li>
-			<li class="selected">Art</li>
-			<li><a href="programming.html">Programming</a></li>
-			<li><a>Writing</a></li>
-			<li onClick="yahoo()">Yahoo</li>
-		</ul>
-	</div>
-
-<audio id="yahoo">
-	<source src="Getting_a_Star.mp3" type="audio/mpeg">
-</audio>
-</div>
+  <script>
+    $('header').load('/header.html');
+  </script>
 <div id="artList">
 <h2>Most recent painting (Oil - Work in Progress)</h2>
 
@@ -56,10 +32,6 @@ function yahoo() {
 <iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120550&authkey=ACIaHq5lwcsT4Bk" width="180" height="320" frameborder="0" scrolling="no"></iframe>
 <iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120522&authkey=AN_IR1Su4bY1QNE" width="180" height="320" frameborder="0" scrolling="no"></iframe>
 <iframe src="https://onedrive.live.com/embed?cid=538593721CD41B55&resid=538593721CD41B55%2120492&authkey=ANArtQr_uYM_jwk" width="180" height="320" frameborder="0" scrolling="no"></iframe>
-
-
-<h2>OneDrive Art Gallery</h2>
-<a href="http://1drv.ms/1MFR20x">Digital Art</a>
 
 	<!--<img src="images/art/RGD_01.jpg">
 	<img src="images/art/RGD_02.jpg">

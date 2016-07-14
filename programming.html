@@ -1,45 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="home_style.css">
-<script src="jquery-2.1.4.min.js"></script>
-<script src="sql.js"></script>
-<script src="clock.js"></script>
-<script>
-function yahoo() {
-  var myAudio = document.getElementById("yahoo");
-  myAudio.currentTime=0;
-  myAudio.play();
-}
-</script>
+<link rel="stylesheet" type="text/css" href="style/common.css">
+<script src="scripts/jquery-2.1.4.min.js"></script>
 </head>
+<header></header>
 <body>
-<div id="header">
-	<h1 id="clock" >Tick Tock</h1>
-	<h2>Welcome to Jacob's Website</h2>
-	
-	<div id="menubar">
-		<ul class="menu">
-			<li><a href="home.html">Home</a></li>
-			<li><a href="art_gallery.html">Art</a></li>
-			<li class="selected">Programming</li>
-			<li><a>Writing</a></li>
-			<li onClick="yahoo()">Yahoo</li>
-		</ul>
-	</div>
-
-<audio id="yahoo">
-	<source src="Getting_a_Star.mp3" type="audio/mpeg">
-</audio>
-</div>
-<div>
-	<h2>Web Apps</h2>
-	<ul>
-		<li><a href="musicdots">Music Dots</a>
-	</ul>
-</div>
-<audio id="yahoo">
-	<source src="Getting_a_Star.mp3" type="audio/mpeg">
-</audio>
+  <script>
+    $('header').load('/header.html');
+  </script>
 </body>
 </html>

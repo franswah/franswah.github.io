@@ -1,0 +1,12 @@
+header {
+	text-align:center;
+	background-color:#111122;
+	/*background-image: url("space.jpg");*/
+	color: #fff;
+	font-size:40px;
+	box-shadow: 4px 4px 2px #222255;
+}
+
+#clock {
+	font-size:30px;
+}

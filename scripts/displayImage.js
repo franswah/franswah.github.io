@@ -1,4 +1,3 @@
-
 var dir = "../images/art";
 var fileextension = ".jpg";
 $.ajax({
