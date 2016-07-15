@@ -13,7 +13,7 @@ header {
 
 header li {
 	display: inline;
-	padding:10px;
+	padding:5px;
 	opacity:.6f;
 	cursor: pointer;
 }

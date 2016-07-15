@@ -13,3 +13,19 @@
 #menu_art {
   background-color: #9944BB;
 }
+
+aside {
+
+  width: 150px;
+  background-color: #80aaff;
+	box-shadow: 4px 4px 2px #060611;
+  font-size: 21px;
+	z-index: -1;
+	position: absolute;
+	bottom: -500px;
+}
+
+.nav_fixed {
+		position: fixed;
+		top: 0;
+}

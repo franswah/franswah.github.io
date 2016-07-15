@@ -1,6 +1,9 @@
 var WIDTH = 920;
 var HEIGHT = 500;
 
+var robotImage = new Image();
+robotImage.src = 'media/robot.png';
+
 var bg = document.getElementById("bg_layer");
 bg.width = WIDTH;
 bg.height = HEIGHT;
@@ -21,6 +24,8 @@ var robot = {
   speed: 256,
   x: 50,
   y: ground,
+  height: 100,
+  width: 95,
   h: 30,
   w: 20
 };
@@ -78,11 +83,16 @@ function vector2d(x1, y1, x2, y2) {
     if (this.length() == 0) return 0;
     return (this.y2 - this.y1) / this.length();
   };
+
+  this.angleRadians = function() {
+    if (this.length() == 0 || this.x1 - this.x2 == 0) return 0;
+    return Math.atan2((this.y2 - this.y1), (this.x2 - this.x1));
+  };
 }
 
 function bullet() {
-  this.x = robot.x;
-  this.y = robot.y;
+  this.x = robot.x + robot.width/2;
+  this.y = robot.y - 70;
   this.vector = new vector2d(this.x, this.y, probe.x, probe.y);
 }
 
@@ -118,8 +128,33 @@ var update = function(modifier) {
 
 var render = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#FF0000";
+  bullets.forEach(function(item) {
+    ctx.fillRect(item.x, item.y, 10, 10);
+  });
+
+  var lineOfSight = new vector2d(robot.x + robot.width/2, robot.y - robot.height, probe.x, probe.y);
+
+  ctx.translate(robot.x + robot.width/2, robot.y - robot.height);
+  ctx.drawImage(robotImage,220, 5, 198, 222, -robot.width/2, 0, robot.width, robot.height);
+  ctx.rotate(lineOfSight.angleRadians());
+  if (robot.x > probe.x) {
+    ctx.translate(0, 30);
+    ctx.drawImage(robotImage,188, 237, 173, 97, -robot.width/2, -40, robot.width, robot.height/2);
+    ctx.translate(0, -30);
+  }
+  else {
+    ctx.drawImage(robotImage,5, 237, 173, 97, -robot.width/2, -40, robot.width, robot.height/2);
+  }
+
+  ctx.rotate(-lineOfSight.angleRadians());
+  ctx.translate(0, 30);
+  ctx.rotate(lineOfSight.angleRadians());
+  ctx.drawImage(robotImage,5, 5, 205, 93, -15, -15, robot.width/1.3, robot.height/2.8);
+  ctx.rotate(-lineOfSight.angleRadians());
+  ctx.translate(0, -30);
+  ctx.translate(-(robot.x + robot.width/2), -(robot.y - robot.height));
   ctx.fillStyle = "#555555";
-  ctx.fillRect(robot.x - robot.w/2, ground - robot.h, robot.w, robot.h);
   ctx.beginPath();
   ctx.arc(probe.x, probe.y, probe.radius, 0, 2*Math.PI);
   ctx.fill();
@@ -131,10 +166,7 @@ var render = function() {
   ctx.fill();
   ctx.stroke();
 
-  ctx.fillStyle = "#FF0000";
-  bullets.forEach(function(item) {
-    ctx.fillRect(item.x, item.y, 10, 10);
-  });
+
 }
 
 var main = function() {

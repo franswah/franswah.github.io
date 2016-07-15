@@ -20,6 +20,11 @@ img {
 	height: auto;
 }
 
+.scroll_section {
+	position: relative;
+	margin-left: 150px;
+}
+
 .section {
 	background-color:#111122;
 	margin: 10px 10px 10px 10px;
