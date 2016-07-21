@@ -1,0 +1,11 @@
+{
+  "name": "junkbot",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-qunit": "latest",
+    "grunt-contrib-concat": "latest"
+  }
+}
