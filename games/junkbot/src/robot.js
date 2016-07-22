@@ -7,16 +7,19 @@ function robot(drone) {
   this.y = ground;
   this.height = 100;
   this.width = 95;
+  this.upAccel = 0;
   this.h = 30;
   this.w = 20;
   this.drone = drone;
   this.weapon = new laserPellets(this);
+  this.jumpTime = 0;
+  this.maxJumpTime = 25;
 
   this.update = function(mod, keys) {
-      if (37 in keys) {
+      if (37 in keys || 65 in keys) {
         this.x -= this.speed * mod;
       }
-      if (39 in keys) {
+      if (39 in keys || 68 in keys) {
         this.x += this.speed * mod;
       }
       if (1 in keys) {
@@ -24,6 +27,20 @@ function robot(drone) {
       }
       else {
         this.weapon.stop();
+      }
+
+      if ((32 in keys || 38 in keys) && (this.jumpTime < this.maxJumpTime)) {
+        this.jumpTime++;
+        this.upAccel = 10 * (1 - Math.pow(this.jumpTime/this.maxJumpTime, 2));
+      }
+
+      if(this.upAccel > -gravity) {
+        this.y -= this.upAccel;
+        this.upAccel--;
+      }
+      if (this.y > ground) {
+        this.y = ground;
+        this.jumpTime = 0;
       }
 
       this.weapon.update(mod);

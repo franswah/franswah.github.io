@@ -1,5 +1,6 @@
 var WIDTH = 920;
 var HEIGHT = 500;
+var gravity = 100;
 
 
 

@@ -3,7 +3,7 @@ function laserPellets(robot) {
     this.bulletDam = 2;
     this.bulletVel = 450;
     this.robot = robot;
-    this.firerate = 20;
+    this.firerate = 15;
     this.firecount = 0;
 
     this.fire = function() {
