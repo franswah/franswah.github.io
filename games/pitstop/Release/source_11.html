@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jacob Francis - Pit Stop — 13 of 24</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Jacob Francis" />
+  <meta name="description" content="A page for the game Pit Stop by Jacob Francis." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Pit Stop</span> <span class="pagination">— 13 of 24</span>
+	</h1>
+	<h2>
+		<span>Jacob Francis</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_10.html">Previous</a></li><li><a href="source_12.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Section - The Computer</span></p><p class="indent0">The computer is on the desk. It is a device. It is usable. It is fixed in place.</p><p class="indent0">Check switching on the computer:</p><p class="indent1">if powerOn is 0:</p><p class="indent2">say &quot;<span class="quote">You press the power button but nothing seems to happen.</span>&quot; instead;</p><p class="indent1">otherwise if computer is switched off:</p><p class="indent2">now the computer is prompting for a password;</p><p class="indent2">now the computer is switched on;</p><p class="indent2">say &quot;<span class="quote">The computer spins to life. After a brief moment the screen displays a password prompt. You can use it now.[</span><span class="substitution">if foundGirl is 0</span><span class="quote">][</span><span class="substitution">Paragraph Break</span><span class="quote">]You here a knock under the desk.[</span><span class="substitution">end if</span><span class="quote">]</span>&quot; instead;</p><p class="indent0">Instead of using the computer:</p><p class="indent1">if the computer is prompting for a password:</p><p class="indent2">now the command prompt is &quot;<span class="quote">Enter password: </span>&quot;;</p><p class="indent1">otherwise if the computer is switched off:</p><p class="indent2">say &quot;<span class="quote">The computer is off.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2"> say &quot;<span class="quote">You see the desktop. Amidst several accounting software icons, you see a file simply named [</span><span class="substitution">combo1</span><span class="quote">]-[</span><span class="substitution">combo2</span><span class="quote">]-[</span><span class="substitution">combo3</span><span class="quote">].txt. It is blank when you open it.</span>&quot;;</p><p class="indent1"></p><p class="indent0">After reading a command when the command prompt is &quot;<span class="quote">Enter password: </span>&quot;:</p><p class="indent1">if the player's command matches the text &quot;<span class="quote">[</span><span class="substitution">girlName</span><span class="quote">]</span>&quot;, case insensitively:</p><p class="indent2">now the computer is not prompting for a password;</p><p class="indent2">now fatherFound is 1;</p><p class="indent2">say &quot;<span class="quote">A jingle plays as the screen displays the desktop. The background is a photo of the little girl being held by what you presume is her father, both smiling. You realize that the father is the man you saw dead behind the store. You should probably tell her...[</span><span class="substitution">Paragraph Break</span><span class="quote">]Amidst several accounting software icons and a few games, you see a file simply named [</span><span class="substitution">combo1</span><span class="quote">]-[</span><span class="substitution">combo2</span><span class="quote">]-[</span><span class="substitution">combo3</span><span class="quote">].txt. It is blank when you open it.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">say &quot;<span class="quote">Incorrect Password. Hint: The light of my life.</span>&quot;;</p><p class="indent1">now the command prompt is &quot;<span class="quote">&gt;</span>&quot;;</p><p class="indent1">reject the player's command.</p><p class="indent2"></p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

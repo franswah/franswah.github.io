@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jacob Francis - Pit Stop — 11 of 24</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Jacob Francis" />
+  <meta name="description" content="A page for the game Pit Stop by Jacob Francis." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Pit Stop</span> <span class="pagination">— 11 of 24</span>
+	</h1>
+	<h2>
+		<span>Jacob Francis</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_8.html">Previous</a></li><li><a href="source_10.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Section - Heavy Door</span></p><p class="indent0">The heavy door is a door. It is east of the Office and west of the Store. &quot;<span class="quote">[</span><span class="substitution">A heavy door</span><span class="quote">] [</span><span class="substitution">if player is in office</span><span class="quote">]to the east is the only entry way.[</span><span class="substitution">otherwise</span><span class="quote">]to the west leads to the office.[</span><span class="substitution">end if</span><span class="quote">]</span>&quot;</p><p class="indent0">Instead of opening or pulling the heavy door:</p><p class="indent1">if the heavy door is open:</p><p class="indent2">say &quot;<span class="quote">It is already open.</span>&quot;;</p><p class="indent1">otherwise if the player is in the office:</p><p class="indent2">if triedPushing is not 0:</p><p class="indent3">now the heavy door is open;</p><p class="indent3">say &quot;<span class="quote">You push open the door.</span>&quot;;</p><p class="indent2">otherwise if playedGame is not 0 and foundGirl is not 0:</p><p class="indent3">say &quot;<span class="quote">'Have you tried pushing, silly?' The little girl laughs gleefully.</span>&quot;;</p><p class="indent2">otherwise:</p><p class="indent3">say &quot;<span class="quote">You pull at the handle but it does not budge. It must be locked.</span>&quot;;</p><p class="indent2">if foundGirl is not 0 and playedGame is 0:</p><p class="indent3">say &quot;<span class="quote">'Don't you want to stay and play a game with me?' The little girl looks at you eagerly.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">now the heavy door is open;</p><p class="indent2">say &quot;<span class="quote">You pull the door open.</span>&quot;;</p><p class="indent1">rule succeeds.</p><p class="indent2"></p><p class="indent0">Instead of pushing the heavy door:</p><p class="indent1">if the heavy door is open:</p><p class="indent2">say &quot;<span class="quote">It is already open.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">now the heavy door is open;</p><p class="indent2">if the player is in the office:</p><p class="indent3">if triedPushing is 0:</p><p class="indent4">now triedPushing is 1;</p><p class="indent4">say &quot;<span class="quote">You are skeptical but you push on the handle of the door that is clearly meant for pulling. The door swings open with ease. Without stepping through you can see into a convenience store with a man on the other side.</span>&quot;;</p><p class="indent3">otherwise:</p><p class="indent4">say &quot;<span class="quote">You push open the badly designed door.</span>&quot;;</p><p class="indent3">if the heavy door is open and the player is in the office and the girl is in the office and a bad man is in the store:</p><p class="indent4">say &quot;<span class="quote">The girl becomes quiet as she looks out the door. 'That's one of the bad men!' She runs back under the desk and hides.</span>&quot;;</p><p class="indent4">now the girl is hiding;</p><p class="indent2">otherwise:</p><p class="indent3">say &quot;<span class="quote">You pull the door open.</span>&quot;;</p><p class="indent1">rule succeeds.</p><p class="indent2"></p><p class="indent0">After closing the heavy door:</p><p class="indent1">if the heavy door is closed:</p><p class="indent2">say &quot;<span class="quote">You shut the door.</span>&quot;;</p><p class="indent2">if the player is in the office and the girl is hiding:</p><p class="indent3">now the girl is not hiding;</p><p class="indent3">say &quot;<span class="quote">The girl cautiously crawls out from under the desk and stands close to you.</span>&quot;</p><p class="indent2"></p><p class="indent0">Instead of examining heavy door:</p><p class="indent1">if the heavy door is open:</p><p class="indent2">if a bad man is in the store and the tall man is not dead:</p><p class="indent3">say &quot;<span class="quote">You can see into the store. You can see a man rummaging through a shelf with his back turned to you.</span>&quot;;</p><p class="indent2">otherwise:</p><p class="indent3">say &quot;<span class="quote">You can see into the store. It is a mess.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">say &quot;<span class="quote">It is closed.</span>&quot;;</p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jacob Francis - Pit Stop — 17 of 24</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Jacob Francis" />
+  <meta name="description" content="A page for the game Pit Stop by Jacob Francis." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Pit Stop</span> <span class="pagination">— 17 of 24</span>
+	</h1>
+	<h2>
+		<span>Jacob Francis</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_14.html">Previous</a></li><li><a href="source_16.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Section - Safe</span></p><p class="indent0">The safe is a container. It is opaque.  It is locked. shotgun ammo is in the safe.</p><p class="indent0">Check opening the safe:</p><p class="indent1">if the safe is locked:</p><p class="indent2">say &quot;<span class="quote">It is locked. There is a dial with numbers that you can spin.</span>&quot; instead;</p><p class="indent0">Check examining the safe:</p><p class="indent1">if the safe is locked:</p><p class="indent2">say &quot;<span class="quote">It is locked. There is a dial with numbers that you can spin.</span>&quot; instead; </p><p class="indent4"></p><p class="indent2"></p><p class="indent0">Understand &quot;<span class="quote">dial</span>&quot; as the safe.</p><p class="indent2"></p><p class="indent0">Understand &quot;<span class="quote">spin [</span><span class="substitution">something</span><span class="quote">] to [</span><span class="substitution">a number</span><span class="quote">]</span>&quot; as spinning it to. Understand &quot;<span class="quote">turn [</span><span class="substitution">something</span><span class="quote">] to [</span><span class="substitution">a number</span><span class="quote">]</span>&quot; as spinning it to. Spinning it to is an action applying to one thing and one number.</p><p class="indent0">Understand &quot;<span class="quote">spin [</span><span class="substitution">something</span><span class="quote">]</span>&quot; as a mistake(&quot;<span class="quote">Spin it to what?</span>&quot;).</p><p class="indent0">Check spinning it to:</p><p class="indent1">if the noun is not the safe:</p><p class="indent2">say &quot;<span class="quote">[</span><span class="substitution">The noun</span><span class="quote">] does not spin.</span>&quot; instead.</p><p class="indent0">When play begins:</p><p class="indent1">now combo1 is a random number from 11 to 20;</p><p class="indent1">now combo2 is a random number from 1 to 10;</p><p class="indent1">now combo3 is a random number from 21 to 30;</p><p class="indent0">combo1 is a number variable. </p><p class="indent0">combo2 is a number variable. </p><p class="indent0">combo3 is a number variable.</p><p class="indent0">solve1 is a number variable. solve1 is 0.</p><p class="indent0">solve2 is a number variable. solve2 is 0.</p><p class="indent0">Report spinning it to: </p><p class="indent1">now solve1 is 0;</p><p class="indent1">now solve2 is 0;</p><p class="indent1">say &quot;<span class="quote">Nothing happens.</span>&quot;</p><p class="indent0">After spinning the closed safe to combo1:</p><p class="indent1">now solve1 is 1;</p><p class="indent1">say &quot;<span class="quote">Click!</span>&quot;;</p><p class="indent0">After spinning the closed safe to combo2:</p><p class="indent1">if solve1 is 1:</p><p class="indent2">now solve2 is 1;</p><p class="indent2">say &quot;<span class="quote">Click!</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">say &quot;<span class="quote">Nothing happens.</span>&quot;</p><p class="indent2"></p><p class="indent0">After spinning the closed safe to combo3:</p><p class="indent1">if solve2 is 1:</p><p class="indent2">now the safe is unlocked;</p><p class="indent2">now the safe is open;</p><p class="indent2">say &quot;<span class="quote">Click! The safe swings open.</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">say &quot;<span class="quote">Nothing happens.</span>&quot;</p><p class="indent2"></p><p class="indent1"></p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

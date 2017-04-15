@@ -1,0 +1,731 @@
+"Pit Stop" by Jacob Francis
+
+Part - Variables
+
+triedPushing is a number variable. triedPushing is 0.
+foundGirl is a number variable. foundGirl is 0.
+askedName is a number variable. askedName is 0.
+powerOn is a number variable. powerOn is 0.
+playedGame is a number variable. playedGame is 1.
+fatherFound is a number variable. fatherFound is 0.
+toldGirl is a number variable. toldGirl is 0.
+candyGiven is a number variable. candyGiven is 0.
+
+Part - Custom Adjectives
+
+A thing can be blocking.
+
+A thing can be movable.
+
+A thing can be breakable.
+
+A device can be prompting for a password.
+
+A thing can be usable.
+
+A person can be sad.
+
+A person can be trusting.
+
+A person can be following.
+
+A person has a number called max health. A person has a number called current health.
+
+A person can be engaged.
+
+A person can be stumbled.
+
+A person can be pausing.
+
+A person can be being attacked.
+
+A person can be using a usable thing.
+
+A person can be distracted.
+
+A person can be hiding.
+
+When play begins:
+	say "[italic type]You wake up in a faintly lit room. You are laying on the floor with a pile of rags cradling your aching head. You slowly sit up to take in your surroundings"
+	
+Part - Kinds of Things
+
+A weapon is a kind of thing. A weapon has a number called damage. Damage is usually 1.
+
+A weapon can be loaded.
+	
+Part - Custom Verbs
+
+Understand "talk to [someone]" as a mistake ("To start a conversation, try to ASK [the noun] about something.").
+
+Understand "who" or "what" or "when" or "where" or "why" or "how" or "who's" or "what's" or "when's" or "where's" or "why's" or "how's" as "[query]".
+
+Understand "[query] [text]" as a mistake ("[story title] understands commands, such as 'examine [a random thing that can be seen by the player]', but not questions. To start a conversation, try to ASK [the noun] ABOUT something or TELL [the noun] ABOUT something.").
+	
+Understand the command "play" as  something new.
+
+Understand "play [something]" as playing. Playing is an action applying to one thing.
+
+Carry out playing:
+	now playedGame is 1;
+	say "You play [the game] with the girl."
+	
+Check playing:
+	if the noun is not the game, say "You can only play games." instead;
+
+Understand "type [text]" as a mistake ("[if player is in office and computer is switched on]Try using the computer.[otherwise]There is nothing to type on.[end if]").
+
+Understand the command "use" as something new.
+
+Understand "use [something usable]" as using. Using is an action applying to one thing.
+
+Understand "health" as checking health. Understand "check health" as checking health.
+Checking health is an action applying to nothing.
+
+Carry out checking health:
+	say "Your health is at [current health of player]."
+	
+Check taking a weapon:
+	if the player is carrying a weapon:
+		say "You can only carry one weapon at a time." instead;
+	
+The can't take people's possessions rule is not listed in any rulebook.
+
+Check taking something:
+	if the noun is carried by a not dead person:
+		say "[The noun] does not belong to you." instead;
+		
+Instead of listening to something or listening:
+	say "Try examining instead." instead;
+	
+Understand "start [something]" as switching on.
+
+
+Part - Characters
+
+Section - Little Girl
+
+[girlName is some text that varies. girlName is "[one of]Alice[or]Susie[or]Lucy[or]Alley[or]Wendy[or]Olivia[or]Diana[or]Lily[or]Marie[or]Holly[sticky random]".]
+
+girlName is some text that varies. girlName is "Alice".
+
+When play begins:
+	let nameList be {"Alice", "Macy", "Chrysanthemum", "Marie", "Holly", "Olivia", "Lily", "Lucia", "Bridget", "Alley", "Wendy", "Susie", "Emma", "Sophie", "Emily", "Sarah", "Katryn", "Katie", "Diana"};
+	let randomIndex be a random number between 1 and the number of entries in nameList;
+	now girlName is entry randomIndex in nameList;
+
+Little Girl is a person.
+Rule for printing the name of little girl:
+	if askedName is 0:
+		say "the little girl";
+	otherwise:
+		say "[girlName]".
+
+
+Understand "Alice" and "Macy" and "Chrysanthemum" and "Marie" and "Holly" and "Olivia" and "Lily" and "Lucia" and "Bridget" and "Alley" and "Wendy" and "Susie" and "Emma" and "Sophie" and "Emily" and "Sarah" and "Katryn" and "Katie" and "Diana" as the little girl;
+		
+Understand "her" as the little girl.
+		
+Table of Little Girl
+Topic	Response
+"name"	"[one of]'Oh, my name is [girlName]'[or]'[girlName]'[stopping]"
+"dad/daddy/father"	"'Daddy said to stay here and play with you when you woke up. He had to take care of the bad men.'[if fatherFound is 1] You should probably tell her something..."
+"bad/men/man"	"'They made a mess in Daddy's store. But now Daddy scared them off! He went out to make sure they do not come back.'"
+"follow/come/accompany/go"	"[if toldGirl is 0]'Daddy should be back any minute.'[otherwise if the gas pumps contains a not dead bad man or the store contains a not dead bad man]'Is it safe? I will only go if it is safe.'[otherwise]She looks worried but gives you a soft smile. She grabs on to your hand tightly.[end if]"
+"her/herself/self"	"'I'm [girlName]! I sometimes help Daddy run his store. He should be back soon!'"
+"me/myself/I/my"	"'I don't know you, but I like to make new friends! Daddy saved your life after the bad men hit you on the head.'"
+"computer"	"[if the computer is switched off]'Sometimes Daddy lets me play some games on the computer, but it won't turn on for some reason.'[otherwise]'You got it working!'"
+"desk"	"'Makes for a great hiding spot!'"
+"safe/combination/dial"	"'I don't know what is in there. Daddy said I shouldn't worry about it.'"
+"store/gas/station/building"	"'My dad and I run this store by ourselves. He said he wants to quit working soon so that I can have a normal childhood, whatever that means.'"
+"room/office/here/place"	"'This is just where Daddy works on the computer sometimes. He doesn't play the games, just some boring grids with numbers.'"
+"door/locked/lock/leave/escape/out/exit"	"'There is a door, silly.'"
+"candy/bar/chocolate"	"'I love chocolate!'"
+
+Table of Telling Girl
+Topic	Response
+"father/dad/daddy"	"[if toldGirl is 0 and fatherFound is not 0]You can tell her a lie or tell her the truth.[end if]"
+"lie"	"[if toldGirl is 0 and fatherFound is not 0]You tell her that you met her father outside and that he needed to drive to town to alert the police about the bad man, and that he left you to look after her. She looks concerned. 'I am sure he will be back soon.'[end if]"
+"truth"	"[if toldGirl is 0 and fatherFound is not 0]You bluntly tell her that her father is dead, killed by the bad men. She starts crying. Maybe you should take her with you.[end if]"
+"follow/come/accompany/go"	"[if toldGirl is 0]'Daddy should be back any minute.'[otherwise if the gas pumps contains a not dead bad man or the store contains a not dead bad man]'Is it safe? I will only go if it is safe.'[otherwise]She looks worried but gives you a soft smile. She grabs on to your hand tightly.[end if]"
+
+Check asking the little girl about something:
+	if the tall man is dead:
+		now the little girl is not hiding;
+	if the little girl is hiding:
+		say "She looks too scared to answer." instead;
+		
+Understand "ask [something] [text]" as asking it about;
+
+Understand "tell [something] [text]" as telling it about;
+
+Understand "ask [something]" as a mistake("ask [the noun] about what?");
+
+Understand "examine under [something]" as looking under;
+
+Check asking the little girl about something:
+	if the little girl is sad:
+		if candyGiven is 0:
+			say "She is sobbing and does not want to speak to you." instead;
+		otherwise if player's command includes "follow/come/accompany/go" and toldGirl is not 0:
+			if the gas pumps does not contain a not dead bad man and the store does not contain a not dead bad man:
+				now the little girl is following;
+				say "She looks worried but gives you a soft smile. She grabs on to your hand tightly." instead;
+			otherwise:
+				say "I do not think it is safe yet." instead;
+		otherwise:
+			say "She is sobbing. Maybe you should just ask her to come with you.";
+		
+Check telling the little girl about something:
+	if the little girl is sad:
+		if candyGiven is 0:
+			say "She is sobbing and does not want to speak to you." instead;
+		otherwise if player's command includes "follow/come/accompany/go" and toldGirl is not 0:
+			if the gas pumps does not contain a not dead bad man and the store does not contain a not dead bad man:
+				now the little girl is following;
+				say "She looks worried but gives you a soft smile. She grabs on to your hand tightly." instead;
+			otherwise:
+				say "I do not think it is safe yet." instead;
+		otherwise:
+			say "She is sobbing. Maybe you should just ask her to come with you.";
+
+Carry out asking the little girl about something:
+	Repeat through the Table of Little Girl:
+		if player's command includes topic entry:
+			if player's command includes "name":
+				now askedName is 1;
+			say "[Response Entry][Paragraph Break]";
+			break;
+				
+Carry out telling the little girl about something:
+	Repeat through the Table of Telling Girl:
+		if player's command includes topic entry:
+			say "[Response Entry][Paragraph Break]";
+			if the player's command includes "truth" and fatherFound is not 0:
+				now toldGirl is 1;
+				now the little girl is sad;
+			break;
+	
+After asking the little girl about something:
+	do nothing;
+	
+After telling the little girl about something:
+	do nothing;
+	
+Instead of examining the little girl:
+	say "You can ask her something.";
+	
+Instead of taking the little girl:
+	try asking the little girl about "follow";
+	
+Instead of giving the chocolate bar to the little girl:
+	if the little girl is sad:
+		say "She looks at you with tears in her eyes and gracefully accepts your gift. She opens starts eating it. She gives you a slight smile.";
+		now candyGiven is 1;
+	otherwise:
+		say "She looks like she has had enough for now. Maybe you should save it for later.";
+	
+Understand "search [something]" as examining;
+
+Section - Bad Men
+
+Bad Man is a kind of person. The plural of Bad Man is Bad Men. The max health of a bad man is 10. The current health of a bad man is 10.
+A bad man has a number called perception. Perception is usually 7.
+
+Section - Bad Man in Store
+
+The tall man is a bad man. He is in the Store. "[if the tall man is distracted]A tall man wearing a dark leather jacket is standing on the other side of the store, looking through the medicine display.[otherwise if the tall man is dead]The body of the tall man is lying on the floor near the medicine display.[otherwise]The tall man looks intimidating with his knife.[end if]" 
+
+The tall man is distracted. The tall man is carrying a knife. The knife is a weapon. The damage of the knife is 3.
+
+Instead of examining the tall man:
+	say "[if the tall man is dead]He is not moving.[otherwise]He has a knife on his belt.[end if]" instead;
+
+The bald man is a bad man. He is in the Gas Pumps. "[if the bald man is distracted]A bald man is sitting in the passenger seat of your [truck] looking through whatever junk you left in there.[otherwise if the bald man is dead]The body of the bald man is next to your [truck].[otherwise]The bald man is pointing his gun at you.[end if]";
+
+The bald man is distracted. The bald man is carrying a pistol. The pistol is a weapon. The damage of the pistol is 5. The perception of the bald man is 4.
+
+The long haired man is a bad man. He is in the Gas Pumps. "[if the long haired man is distracted]A long haired man is leaning against the outside of [the truck].[otherwise if long haired man is dead]The long haired man's body is lying on the ground, his hair covering his face.[otherwise]The long haired man has his pistol out.[end if]";
+	
+The long haired man is distracted. The long haired man is carrying a rifle. The rifle is a weapon. The damage of the rifle is 7. The perception of the long haired man is 4.
+
+Instead of asking a bad man about something:
+	now the perception of the noun is 0;
+	
+Instead of telling a bad man about something:
+	now the perception of the noun is 0;
+
+Section - Old Man
+
+The old man is a person. He is in Out Back. "An old man is on the ground propped up against the wall of the building with gunshot wounds in his chest. He is not moving. He appears to be grasping on to something."
+
+Instead of examining the old man:
+	say "[If the old man is carrying the shotgun]He is grasping on to a [shotgun]. [end if]He must have been fighting off the bad men.";
+
+Instead of examining the shotgun, say "[If the shotgun is loaded]A deadly loaded weapon[otherwise]It does not appear to be loaded with any ammo[end if]."
+
+The current health of the old man is 0. The old man is carrying a shotgun. The shotgun is a weapon. The damage of the shotgun is 8.
+
+Part - Setting
+
+Chapter - The Office
+
+The Office is a room. "Faint light is streaming in through [a window] high up on the west wall. [Candy wrappers] litter the floor."
+
+The player is in the Office.
+
+Instead of taking candy wrappers:
+	say "Many are covered in melty chocolate. You have no need to touch them.";
+
+Section - Heavy Door
+
+The heavy door is a door. It is east of the Office and west of the Store. "[A heavy door] [if player is in office]to the east is the only entry way.[otherwise]to the west leads to the office.[end if]"
+
+Instead of opening or pulling the heavy door:
+	if the heavy door is open:
+		say "It is already open.";
+	otherwise if the player is in the office:
+		if triedPushing is not 0:
+			now the heavy door is open;
+			say "You push open the door.";
+		otherwise if playedGame is not 0 and foundGirl is not 0:
+			say "'Have you tried pushing, silly?' The little girl laughs gleefully.";
+		otherwise:
+			say "You pull at the handle but it does not budge. It must be locked.";
+		if foundGirl is not 0 and playedGame is 0:
+			say "'Don't you want to stay and play a game with me?' The little girl looks at you eagerly.";
+	otherwise:
+		now the heavy door is open;
+		say "You pull the door open.";
+	rule succeeds.
+		
+Instead of pushing the heavy door:
+	if the heavy door is open:
+		say "It is already open.";
+	otherwise:
+		now the heavy door is open;
+		if the player is in the office:
+			if triedPushing is 0:
+				now triedPushing is 1;
+				say "You are skeptical but you push on the handle of the door that is clearly meant for pulling. The door swings open with ease. Without stepping through you can see into a convenience store with a man on the other side.";
+			otherwise:
+				say "You push open the badly designed door.";
+			if the heavy door is open and the player is in the office and the girl is in the office and a bad man is in the store:
+				say "The girl becomes quiet as she looks out the door. 'That's one of the bad men!' She runs back under the desk and hides.";
+				now the girl is hiding;
+		otherwise:
+			say "You pull the door open.";
+	rule succeeds.
+		
+After closing the heavy door:
+	if the heavy door is closed:
+		say "You shut the door.";
+		if the player is in the office and the girl is hiding:
+			now the girl is not hiding;
+			say "The girl cautiously crawls out from under the desk and stands close to you."
+		
+
+Instead of examining heavy door:
+	if the heavy door is open:
+		if a bad man is in the store and the tall man is not dead:
+			say "You can see into the store. You can see a man rummaging through a shelf with his back turned to you.";
+		otherwise:
+			say "You can see into the store. It is a mess.";
+	otherwise:
+		say "It is closed.";
+
+Section - Desk
+
+The desk is a supporter in the Office. "A small desk sits on the north side of the room with a chair pushed up against it." 
+
+Instead of examining the desk:
+	say "On the desk is a computer[if the keys is on the desk] and your truck keys[end if].[if foundGirl is 0] You here a muffled knock under the desk.[end if]" instead;
+
+The set of keys is on the desk. 
+
+Rule for printing the name of the keys:
+	say "set of truck keys"
+
+Instead of looking under the desk:
+	if the chair is blocking:
+		say "The chair is in the way.";
+	otherwise:
+		if foundGirl is 0:
+			now foundGirl is 1;
+			move the safe to the office; 
+			move the little girl to the office;
+			say "You see what appears to be a safe and...[Paragraph Break]'BOO!'[Paragraph Break]";
+			say "A little girl jumps out from under the desk with a grin on her face. She looks no older than 8 and is wearing a wrinkled dress, stained with what you hope is chocolate.";
+			say "'Did I scare ya?' She lets out a playful laugh.";
+		otherwise:
+			say "There is a safe under the desk";
+
+Section - The Computer
+
+The computer is on the desk. It is a device. It is usable. It is fixed in place.
+
+
+Check switching on the computer:
+	if powerOn is 0:
+		say "You press the power button but nothing seems to happen." instead;
+	otherwise if computer is switched off:
+		now the computer is prompting for a password;
+		now the computer is switched on;
+		say "The computer spins to life. After a brief moment the screen displays a password prompt. You can use it now.[if foundGirl is 0][Paragraph Break]You here a knock under the desk.[end if]" instead;
+
+Instead of using the computer:
+	if the computer is prompting for a password:
+		now the command prompt is "Enter password: ";
+	otherwise if the computer is switched off:
+		say "The computer is off.";
+	otherwise:
+		 say "You see the desktop. Amidst several accounting software icons, you see a file simply named [combo1]-[combo2]-[combo3].txt. It is blank when you open it.";
+	
+After reading a command when the command prompt is "Enter password: ":
+	if the player's command matches the text "[girlName]", case insensitively:
+		now the computer is not prompting for a password;
+		now fatherFound is 1;
+		say "A jingle plays as the screen displays the desktop. The background is a photo of the little girl being held by what you presume is her father, both smiling. You realize that the father is the man you saw dead behind the store. You should probably tell her...[Paragraph Break]Amidst several accounting software icons and a few games, you see a file simply named [combo1]-[combo2]-[combo3].txt. It is blank when you open it.";
+	otherwise:
+		say "Incorrect Password. Hint: The light of my life.";
+	now the command prompt is ">";
+	reject the player's command.
+		
+Section - Chair
+
+The chair is in the Office.  It is undescribed. It is fixed in place. It is blocking.
+
+Instead of pushing or pulling the chair:
+	if the chair is blocking:
+		now the chair is not blocking;
+		say "You pull the chair away from the desk. You notice some dark shapes under the desk.";
+	otherwise:
+		say "The chair is no longer blocking the desk.";
+		
+Instead of entering the chair:
+	if the chair is blocking:
+		say "You cannot sit in the chair while it is right up against the desk.";
+	otherwise:
+		say "Now is not the time.";
+
+Section - Game
+
+The game is a thing. It is undescribed.
+
+Section - Miscellaneous Items
+
+A window is in the Office. It is undescribed.
+
+Some Candy wrappers are in the Office. They are undescribed.
+
+Some rags are in the Office. The rags are undescribed.
+
+Section - Safe
+
+The safe is a container. It is opaque.  It is locked. shotgun ammo is in the safe.
+
+Check opening the safe:
+	if the safe is locked:
+		say "It is locked. There is a dial with numbers that you can spin." instead;
+
+Check examining the safe:
+	if the safe is locked:
+		say "It is locked. There is a dial with numbers that you can spin." instead;		
+				
+		
+Understand "dial" as the safe.
+		
+Understand "spin [something] to [a number]" as spinning it to. Understand "turn [something] to [a number]" as spinning it to. Spinning it to is an action applying to one thing and one number.
+
+Understand "spin [something]" as a mistake("Spin it to what?").
+
+Check spinning it to:
+	if the noun is not the safe:
+		say "[The noun] does not spin." instead.
+
+When play begins:
+	now combo1 is a random number from 11 to 20;
+	now combo2 is a random number from 1 to 10;
+	now combo3 is a random number from 21 to 30;
+
+combo1 is a number variable. 
+combo2 is a number variable. 
+combo3 is a number variable.
+solve1 is a number variable. solve1 is 0.
+solve2 is a number variable. solve2 is 0.
+
+Report spinning it to: 
+	now solve1 is 0;
+	now solve2 is 0;
+	say "Nothing happens."
+
+After spinning the closed safe to combo1:
+	now solve1 is 1;
+	say "Click!";
+
+After spinning the closed safe to combo2:
+	if solve1 is 1:
+		now solve2 is 1;
+		say "Click!";
+	otherwise:
+		say "Nothing happens."
+		
+After spinning the closed safe to combo3:
+	if solve2 is 1:
+		now the safe is unlocked;
+		now the safe is open;
+		say "Click! The safe swings open.";
+	otherwise:
+		say "Nothing happens."
+		
+	
+Chapter - The Store
+
+The Store is a room. "There are various [displays] scattered throughout the store that you can search, but many have been pushed over and looted. [Paragraph Break]On the north wall is a [glass door] leading outside. There is an [emergency exit] on the south wall of the store."
+
+Section - Doors
+
+The glass door is a door. It is south of the Gas Pumps and north of the Store. Instead of examining the glass door, say "[if the player is in the store]You peer outside and notice two more bad men rummaging through your truck. You are in for a fight if you go out there.[otherwise]The glare from the sun makes it difficult to see into the store.[end if]" 
+
+Instead of opening the glass door for the first time:
+	try examining the glass door;
+	say "Try again if you really want to.";
+
+The emergency exit is a door. It is south of the Store and north of Out Back.
+
+Check opening the emergency exit:
+	if the tall man is not dead and the tall man is not engaged:
+		now the perception of the tall man is 0;
+		now the tall man is engaged;
+		say "The tall man turns around to the sound of the door opening, and lunges at you with a knife." instead;
+
+Section - Shelves
+
+A shelf is a kind of supporter.
+
+the Toy Display is a shelf. It is in the store. It is undescribed. 
+the Alcohol Display is a shelf. It is in the store. It is undescribed.
+the Medicine Display is a shelf. It is in the store. It is undescribed.
+the Snack Display is a shelf. It is in the store. It is undescribed.
+displays is a thing in the Store. It is scenery.
+
+The description of the Toy Display is "Mostly cheap plastic garbage."
+
+The description of the Alcohol Display is "All of the bottles have been taken or are broken on the floor."
+
+The description of the Medicine Display is "[If the tall man is distracted]The [tall man] is blocking your view of the display[otherwise if the pack of bandages is on the Medicine Display]The only thing useful is [a pack of bandages][otherwise]There is nothing on it[end if]."
+
+The description of the Snack Display is "This display has been torn apart. Crumbs and packaging litters the floor.[if the chocolate bar is on the Snack Display] You do notice one single [chocolate bar] on the top shelf.[end if]"
+
+The description of displays is "There is a [List of shelves in room]."
+
+The wooden bat is a weapon. It is on the Toy Display. The damage of the bat is 3.
+The pack of bandages is a thing. It is on the Medicine Display. It is usable. It has a number called amount. The amount of bandages is 3. Instead of examining bandages, say "A pack of bandages. There are [amount of bandages]."
+
+Instead of using bandages:
+	if the amount of bandages is 0:
+		say "There are no more left." instead;
+	otherwise if the current health of the player is the max health of the player:
+		say "You have no wounds to heal." instead;
+	otherwise:
+		now the amount of bandages is the amount of bandages - 1;
+		now the current health of the player is the current health of the player + 5;
+		if the current health of the player is greater than the max health of the player:
+			now the current health of the player is the max health of the player;
+		say "You wrap one of your wounds with the bandage. You instantly start to feel better. There are [amount of bandages] left."
+		
+Check taking bandages:
+	if the tall man is distracted:
+		say "[The tall man] is in the way.";
+
+The chocolate bar is a thing. It is on the Snack Display. It is edible. Instead of examining the bar, say "Mmmm chocolate." 
+
+Chapter - The Gas Pumps
+
+The Gas Pumps is a room. "Gas pumps line the front of the store. Your truck is parked beside one of them. A road stretches from east to west through desert. The only way out is by car."
+
+
+The truck is a vehicle. It is in the Gas Pumps. The ignition is a device. The ignition is part of the truck. Instead of switching on the truck, try switching on the ignition. Instead of switching off the truck, try switching off the ignition.
+
+Check entering truck:
+	if the room contains a not dead bad man:
+		say "The bad men block your escape." instead;
+		
+Check switching on the ignition:
+	if the player is not in the truck:
+		say "You have to be in the truck to start it." instead;
+	otherwise if the player is not carrying the keys:
+		say "You need keys to start the truck.";
+		
+After switching on the ignition:
+	say "The engine roars to life. You are ready to drive away if you would like.";
+	
+Understand the command "drive" as something new. 
+
+Understand "drive" as driving. Driving is an action applying to nothing.
+
+Check driving:
+	if the player is not in the truck:
+		say "You cannot drive from here." instead;
+	otherwise if the ignition is switched off:
+		say "The ignition is not on." instead;
+		
+Carry out driving:
+	say "[if the little girl is following]You and [girlName] are shaken up but safe now. You pull away from the gas station and drive off together down the lonely desert road.[otherwise]You think about your own safety first. You leave the girl behind amidst several bodies and her dead father. There is no telling whether more bad men will come, but you do not care. You just want to get the hell out of here.";
+	end the story;
+
+Chapter - Out Back
+
+Out Back is a room. "The sun is bright. There are few signs of civilization around the convenience store, only an empty road that stretches from the east to west through desert, passing across the other side of the store. There is no where to go except back north through the emergency exit."
+
+The metal box is a container. It is in the Out Back. It is opaque. It is openable. It is closed. "A metal electrical box is fixed to the back wall[if the metal box is closed] which can be opened[end if].";
+
+The circuit breaker is a device in the metal box. It is fixed in place. "a bunch of circuit breakers. [if the breaker is switched off]One breaker appears to be off.";
+
+After opening the metal box:
+	say "[if the breaker is switched off]You open the box to reveal several circuit breakers. You notice one breaker is switched off.[end if]";
+
+Check switching on the breaker:
+	if circuit breaker is switched off:
+		now powerOn is 1;
+	otherwise:
+		now powerOn is 0;
+		
+Part - Combat
+
+Definition: a person is dead if his current health is less than 1.
+
+Check going:
+	if the player is being attacked:
+		say "You have already been noticed and cannot escape." instead;
+
+Every turn:
+	if the little girl is following:
+		now little girl is in the location of the player;
+	Repeat with enemy running through not dead bad men in room:
+		if the location of the enemy is the location of the player:
+			if the enemy is stumbled:
+				say "[The enemy] stumbles backwards from your blow.";
+				now the enemy is not stumbled;
+			otherwise if the enemy is engaged:
+				now the player is being attacked;
+				try enemy attacking the player with a random weapon which is carried by the enemy;
+			otherwise if the perception of the enemy is 0:
+				now the enemy is not distracted;
+				now the enemy is engaged;
+				now the player is being attacked;
+				say "[The enemy] notices you and begins heading in your direction.";
+			otherwise:
+				now the perception of the enemy is the perception of the enemy - 1;
+				if the perception of the enemy is 0:
+					say "[The enemy] starts to turn towards you.";
+				otherwise if the perception of the enemy is 1:
+					say "[The enemy] appears to react to a sound you make.";
+				otherwise:
+					say "[The enemy] still appears preoccupied with what he is doing.";
+
+Understand "kick [someone]" as attacking.
+
+Instead of attacking the little girl:
+	say "What kind of monster are you?";
+		
+Understand the commands "attack" and "shoot" and "punch" and "fight" and "kill" and "murder" and "hit" and "break" and "smash" and "wreck" as something new.
+
+Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [something] with [something preferably held]" as attacking it with.
+
+Understand the commands "punch" and "shoot" and "fight" and "kill" and "murder" and "hit" and "break" and "smash" and "wreck" as "attack".
+
+[Derived from inform7.com/learn/man/RB_7_5.html example Lanista 2 ]
+
+The attacking it with action has a number called the damage inflicted.
+
+Setting action variables for attacking something with something:
+	if the second noun is a weapon:
+		let the maximum attack be the damage of the second noun;
+		now the damage inflicted is the maximum attack.
+		
+Check attacking:
+	if the player is not carrying a weapon:
+		say "You need a weapon." instead;
+		
+Check attacking it with:
+	if the player is not carrying a weapon:
+		say "You need a weapon." instead;
+		
+Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule):
+	if the second noun is not a weapon:
+		if the actor is the player, say "[The second noun] cannot be used as a weapon.";
+		stop the action.
+		
+Check an actor attacking something with something:
+	if the noun is not a person and the noun is not breakable:
+		if the actor is the player, say "[The noun] cannot be broken.";
+		stop the action;
+	otherwise if the noun is dead:
+		stop the action.
+		
+Check an actor attacking something with the shotgun:
+	if the shotgun is not loaded:
+		say "Click. Your gun is not loaded.";
+		stop the action.
+		
+Carry out an actor attacking something with something (this is the standard attacking it with a weapon rule):
+	if the noun is a person:
+		decrease the current health of the noun by the damage of the second noun;
+		if the noun is a bad man and the noun is distracted:
+			Repeat with enemy running through not dead bad men in location of the player:
+				now the perception of the enemy is 0;
+				now the enemy is not distracted;
+			now the noun is stumbled;
+			now the perception of the noun is 0;
+			decrease the current health of the noun by the damage of the second noun; 
+			now the noun is engaged;
+		if the noun is dead:
+			now the player is not being attacked;
+
+Report attacking a dead person with something (this is the death-report priority rule):
+	say "You attack with [the second noun], knocking [the noun] to the ground. He is no longer moving." instead.
+	
+Report attacking someone with something (this is the normal attacking report rule):
+	say "You attack [the noun] with [the second noun]." instead.
+	
+Report someone attacking the player with something when the player is dead:
+	say "[The actor] attacks you with [the second noun]. It is too much to bear. You collapse to the ground as the last bit of life drains from you. After a moment you can hear the screams of a little girl as you lose consciousness.";
+	end the story;
+	stop the action.
+	
+Report someone attacking the player with something:
+	say "[The actor] attacks you with [the second noun]." instead.
+	
+Report attacking a thing with something:
+	say "You break [the noun] with [the second noun]." instead.
+	
+After taking the shotgun ammo:
+	if the player is carrying the shotgun:
+		now the shotgun is loaded;
+		remove shotgun ammo from play;
+		say "You load the ammo into the shotgun.";
+	otherwise:
+		say "Taken.";
+		
+After taking the shotgun:
+	if the player is carrying the shotgun ammo:
+		now the shotgun is loaded;
+		remove shotgun ammo from play;
+		say "You load the ammo into the shotgun.";
+	otherwise:
+		say "Taken.";
+		
+
+Part - Setup
+
+The max health of the player is 10. The current health of the player is 10.
+
+Instead of doing something other than dropping or taking with the set of keys:
+	say "They are yours. You may need them later";
+
+When play begins:
+	now the left hand status line is "Health: [current health of player]";
+	now the right hand status line is "[location of player]";
+	
+Release along with cover art, a website, the introductory booklet and the source text. Release along with an interpreter.
